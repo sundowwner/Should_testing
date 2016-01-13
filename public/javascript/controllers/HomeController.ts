@@ -2,8 +2,10 @@
 namespace app.Controllers {
   export class HomeController {
 
-    constructor(private HomeService: app.Services.HomeService) {
+    public books;
 
+    constructor(private HomeService: app.Services.HomeService) {
+      this.books = HomeService.getAll();
     }
   }
 

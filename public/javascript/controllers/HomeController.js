@@ -6,6 +6,7 @@ var app;
         var HomeController = (function () {
             function HomeController(HomeService) {
                 this.HomeService = HomeService;
+                this.books = HomeService.getAll();
             }
             return HomeController;
         }());
