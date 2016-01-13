@@ -22,10 +22,14 @@
     "compileOnSave": true,
     "buildOnSave": false,
     "files": [
+        "models/books.ts",
         "public/javascript/app.ts",
         "public/javascript/controllers/HomeController.ts",
         "public/javascript/services/HomeService.ts",
         "public/javascript/services/HTTPFactory.ts",
+
+        "routes/booksRoutes.ts",
+
         "server.ts"
     ],
     "atom": {
