@@ -11,6 +11,11 @@ namespace App {
       controller: app.Controllers.HomeController,
       controllerAs: 'vm'
     })
+    .when('/booksCreate', {
+      templateUrl: '/templates/booksCreate.html',
+      controller: app.Controllers.BooksCreateController,
+      controllerAs: 'vm'
+    })
     .otherwise({ redirectTo: '/' });
 
     $locationProvider.html5Mode(true);
