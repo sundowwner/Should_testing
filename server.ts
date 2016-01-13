@@ -6,6 +6,10 @@ import cookieParser = require('cookie-parser');
 import bodyParser = require('body-parser');
 
 const app = express();
+////////////////////////////////
+///////////////////////////////
+import mongoose = require('mongoose');
+//continue this....
 
 // view engine setup
 app.set('views', './views');
