@@ -4,13 +4,16 @@ var app;
     var Controllers;
     (function (Controllers) {
         var HomeController = (function () {
-            function HomeController(HomeService) {
-                this.HomeService = HomeService;
-                this.books = HomeService.getAll();
+            function HomeController() {
             }
             return HomeController;
-        })();
+        }());
         Controllers.HomeController = HomeController;
-        angular.module('app').controller('HomeController', HomeController);
+        this.books = HomeService.getAll();
+        constructor(private, HomeService, app.Services.HomeService);
+        {
+            this.books = HomeService.getAll();
+        }
     })(Controllers = app.Controllers || (app.Controllers = {}));
 })(app || (app = {}));
+angular.module('app').controller('HomeController', HomeController);
