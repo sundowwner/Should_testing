@@ -1,6 +1,6 @@
 "use strict";
 namespace app.Controllers{
-    export class BooksCreateController{
+    export class BooksCreateController {
         public book = {};
 
         public createBook(){

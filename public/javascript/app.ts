@@ -6,12 +6,19 @@ namespace App {
         $locationProvider: ng.ILocationProvider,
         $httpProvider: ng.IHttpProvider) => {
 
-        $routeProvider.when('/', {
-            templateUrl: '/templates/Home.html',
-            controller: app.Controllers.HomeController,
-            controllerAs: 'vm'
-        })
-            .otherwise({ redirectTo: '/' });
+
+    $routeProvider.when('/', {
+      templateUrl: '/templates/Home.html',
+      controller: app.Controllers.HomeController,
+      controllerAs: 'vm'
+    })
+    .when('/booksCreate', {
+      templateUrl: '/templates/booksCreate.html',
+      controller: app.Controllers.BooksCreateController,
+      controllerAs: 'vm'
+    })
+    .otherwise({ redirectTo: '/' });
+
 
         $locationProvider.html5Mode(true);
         $httpProvider.interceptors.push('HTTPFactory');
