@@ -2,8 +2,14 @@
 namespace app.Services {
   export class HomeService {
 
-    constructor() {
+    public BookResource;
 
+    public getAll() {
+      return this.BookResource.query();
+    };
+
+    constructor(private $resource: ng.Resource.IResourceService) {
+      this.BookResource = $resource("/books");
     }
   }
 

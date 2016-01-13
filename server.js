@@ -4,6 +4,9 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var app = express();
+var mongoose = require('mongoose');
+require("./models/books");
+mongoose.connect("mongodb://localhost/bookStore");
 app.set('views', './views');
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
@@ -11,6 +14,8 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+var bookRoutes = require("./routes/booksRoutes");
+app.use("/books", bookRoutes);
 app.use(express.static('./public'));
 app.use('/scripts', express.static('bower_components'));
 app.get('/*', function (req, res, next) {
