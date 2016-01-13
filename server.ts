@@ -9,6 +9,9 @@ const app = express();
 ////////////////////////////////
 ///////////////////////////////
 import mongoose = require('mongoose');
+require("./models/books");
+mongoose.connect("mongodb://localhost/bookStore");
+
 //continue this....
 
 // view engine setup
