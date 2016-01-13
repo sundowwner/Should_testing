@@ -16,14 +16,6 @@ var app;
                 return this.BookResource.save(book).$promise;
             };
             ;
-            HomeService.prototype.getAll = function () {
-                return this.BookResource.query();
-            };
-            ;
-            HomeService.prototype.saveBook = function (book) {
-                return this.BookResource.save(book).$promise;
-            };
-            ;
             return HomeService;
         }());
         Services.HomeService = HomeService;
