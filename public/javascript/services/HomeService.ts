@@ -8,12 +8,16 @@ namespace app.Services {
       return this.BookResource.query();
     };
 
+    public deleteBook(bookId){
+        return this.BookResource.delete({id:bookId}).$promise;
+    }
+
     public saveBook(book){
         return this.BookResource.save(book).$promise;
     };
 
     constructor(private $resource: ng.resource.IResourceService) {
-      this.BookResource = $resource("/books");
+      this.BookResource = $resource("/books/:id");
     }
   }
 
