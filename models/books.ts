@@ -7,9 +7,6 @@ let BookSchema = new mongoose.Schema({
     author: String,
     publish: Number,
     genre: String
-
-
-
 });
 
 

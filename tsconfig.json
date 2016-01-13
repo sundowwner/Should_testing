@@ -24,6 +24,7 @@
     "files": [
         "models/books.ts",
         "public/javascript/app.ts",
+        "public/javascript/controllers/booksCreateController.ts",
         "public/javascript/controllers/HomeController.ts",
         "public/javascript/services/HomeService.ts",
         "public/javascript/services/HTTPFactory.ts",
