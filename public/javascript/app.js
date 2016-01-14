@@ -13,7 +13,7 @@ var App;
             controller: app.Controllers.BooksCreateController,
             controllerAs: 'vm'
         })
-            .when('/booksUpdate', {
+            .when('/update/:id', {
             templateUrl: '/templates/bookUpdate.html',
             controller: app.Controllers.BookUpdateController,
             controllerAs: 'vm'

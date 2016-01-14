@@ -12,13 +12,13 @@ var app;
             }
             BookUpdateController.prototype.update = function (id) {
                 var _this = this;
-                this.HomeService.updateBook(id).then(function (res) {
+                this.HomeService.updateBook(this.book).then(function (res) {
                     _this.$location.path("/");
                 });
             };
             ;
             return BookUpdateController;
-        }());
+        })();
         Controllers.BookUpdateController = BookUpdateController;
         angular.module('app').controller("BookUpdateController", BookUpdateController);
     })(Controllers = app.Controllers || (app.Controllers = {}));

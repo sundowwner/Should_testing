@@ -10,7 +10,12 @@ const app = express();
 ///////////////////////////////
 import mongoose = require('mongoose');
 require("./models/books");
-mongoose.connect("mongodb://localhost/bookStore");
+if (process.env.NODE_ENV === 'test') {
+  mongoose.connect('mongodb://localhost/bookStore-test')
+}
+else {
+  mongoose.connect("mongodb://localhost/bookStore")
+}
 
 //continue this....
 
@@ -21,7 +26,7 @@ app.set('view engine', 'html');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(logger('dev'));
+if (process.env.NODE_ENV !== 'test') app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -53,15 +58,15 @@ app.use(function(req, res, next) {
 
 // error handlers
 
-  app.use(function(err: any, req, res, next) {
-    res.status(err.status || 500);
-    if (err.name = 'CastError') err.message = 'Invalid ID';
-    // Don't leak stack trace if not in development
-    let error = (app.get('env') === 'development') ? err : {};
-    res.send({
-      message: err.message,
-      error: error
-    });
+app.use(function(err: any, req, res, next) {
+  res.status(err.status || 500);
+  if (err.name = 'CastError') err.message = 'Invalid ID';
+  // Don't leak stack trace if not in development
+  let error = (app.get('env') === 'development') ? err : {};
+  res.send({
+    message: err.message,
+    error: error
   });
+});
 
 export = app;
