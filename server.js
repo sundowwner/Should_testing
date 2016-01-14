@@ -6,11 +6,17 @@ var bodyParser = require('body-parser');
 var app = express();
 var mongoose = require('mongoose');
 require("./models/books");
-mongoose.connect("mongodb://localhost/bookStore");
+if (process.env.NODE_ENV === 'test') {
+    mongoose.connect('mongodb://localhost/bookStore-test');
+}
+else {
+    mongoose.connect("mongodb://localhost/bookStore");
+}
 app.set('views', './views');
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
-app.use(logger('dev'));
+if (process.env.NODE_ENV !== 'test')
+    app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
