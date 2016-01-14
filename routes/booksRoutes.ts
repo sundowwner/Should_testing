@@ -20,4 +20,11 @@ router.post("/", (req, res, next) =>{
     });
 });
 
+router.delete("/", (req, res, next) => {
+
+    Book.remove({_id: req.query._id}, (err, result)=>{
+        res.send({message: "SUCCESSSS!YAAAY"});
+    });
+})
+
 export = router;

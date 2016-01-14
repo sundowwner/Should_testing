@@ -9,7 +9,7 @@ namespace app.Services {
     };
 
     public deleteBook(bookId){
-        return this.BookResource.delete({id:bookId}).$promise;
+        return this.BookResource.delete({_id:bookId}).$promise;
     }
 
     public saveBook(book){
@@ -17,7 +17,7 @@ namespace app.Services {
     };
 
     constructor(private $resource: ng.resource.IResourceService) {
-      this.BookResource = $resource("/books/:id");
+      this.BookResource = $resource("/books");
     }
   }
 

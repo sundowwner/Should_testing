@@ -6,14 +6,14 @@ var app;
         var HomeService = (function () {
             function HomeService($resource) {
                 this.$resource = $resource;
-                this.BookResource = $resource("/books/:id");
+                this.BookResource = $resource("/books");
             }
             HomeService.prototype.getAll = function () {
                 return this.BookResource.query();
             };
             ;
             HomeService.prototype.deleteBook = function (bookId) {
-                return this.BookResource.delete({ id: bookId }).$promise;
+                return this.BookResource.delete({ _id: bookId }).$promise;
             };
             HomeService.prototype.saveBook = function (book) {
                 return this.BookResource.save(book).$promise;

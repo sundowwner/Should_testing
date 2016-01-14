@@ -3,13 +3,12 @@ namespace app.Controllers {
   export class HomeController {
 
     public books;
-    public book;
 
     public update()    {
 
     }
-    public delete() {
-        this.HomeService.deleteBook( this.$routeParams["id"]).then((res) => {
+    public delete(id) {
+        this.HomeService.deleteBook(id).then((res) => {
             this.$location.path("/");
         });
     }
@@ -20,7 +19,6 @@ namespace app.Controllers {
 
     ) {
       this.books = HomeService.getAll();
-      this.book = HomeService.getBook($routeParams["id"]);
     }
   }
 

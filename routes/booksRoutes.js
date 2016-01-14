@@ -17,4 +17,9 @@ router.post("/", function (req, res, next) {
         res.send(book);
     });
 });
+router.delete("/", function (req, res, next) {
+    Book.remove({ _id: req.query._id }, function (err, result) {
+        res.send({ message: "SUCCESSSS!YAAAY" });
+    });
+});
 module.exports = router;
