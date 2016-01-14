@@ -1,10 +1,11 @@
 'use strict';
 namespace App {
-  angular.module('app', ['ngRoute', 'ngResource'])
-  .config((
-    $routeProvider: ng.route.IRouteProvider,
-    $locationProvider: ng.ILocationProvider,
-    $httpProvider: ng.IHttpProvider) => {
+    angular.module('app', ['ngRoute', 'ngResource'])
+        .config((
+        $routeProvider: ng.route.IRouteProvider,
+        $locationProvider: ng.ILocationProvider,
+        $httpProvider: ng.IHttpProvider) => {
+
 
     $routeProvider.when('/', {
       templateUrl: '/templates/Home.html',
@@ -18,7 +19,8 @@ namespace App {
     })
     .otherwise({ redirectTo: '/' });
 
-    $locationProvider.html5Mode(true);
-    $httpProvider.interceptors.push('HTTPFactory');
-  });
+
+        $locationProvider.html5Mode(true);
+        $httpProvider.interceptors.push('HTTPFactory');
+    });
 }
