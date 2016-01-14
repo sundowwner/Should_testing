@@ -17,6 +17,11 @@ namespace App {
       controller: app.Controllers.BooksCreateController,
       controllerAs: 'vm'
     })
+    .when('/booksUpdate', {
+      templateUrl: '/templates/bookUpdate.html',
+      controller: app.Controllers.BookUpdateController,
+      controllerAs: 'vm'
+    })
     .otherwise({ redirectTo: '/' });
 
 

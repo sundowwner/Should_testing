@@ -22,4 +22,7 @@ router.delete("/", function (req, res, next) {
         res.send({ message: "SUCCESSSS!YAAAY" });
     });
 });
+router.post("/:id", function (req, res, next) {
+    Book.findOneAndUpdate({ _id: req.params._id }, req.body);
+});
 module.exports = router;

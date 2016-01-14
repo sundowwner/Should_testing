@@ -10,8 +10,6 @@ var app;
                 this.$routeParams = $routeParams;
                 this.books = HomeService.getAll();
             }
-            HomeController.prototype.update = function () {
-            };
             HomeController.prototype.delete = function (id) {
                 var _this = this;
                 this.HomeService.deleteBook(id).then(function (res) {
@@ -19,7 +17,7 @@ var app;
                 });
             };
             return HomeController;
-        })();
+        }());
         Controllers.HomeController = HomeController;
         angular.module('app').controller('HomeController', HomeController);
     })(Controllers = app.Controllers || (app.Controllers = {}));

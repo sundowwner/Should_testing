@@ -21,10 +21,13 @@ router.post("/", (req, res, next) =>{
 });
 
 router.delete("/", (req, res, next) => {
-
     Book.remove({_id: req.query._id}, (err, result)=>{
         res.send({message: "SUCCESSSS!YAAAY"});
     });
+})
+
+router.post("/:id", (req, res, next) => {
+  Book.findOneAndUpdate({_id: req.params._id}, req.body);
 })
 
 export = router;

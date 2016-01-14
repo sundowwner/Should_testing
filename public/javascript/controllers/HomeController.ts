@@ -4,9 +4,6 @@ namespace app.Controllers {
 
     public books;
 
-    public update()    {
-
-    }
     public delete(id) {
         this.HomeService.deleteBook(id).then((res) => {
             this.$location.path("/");

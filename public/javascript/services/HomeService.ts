@@ -12,6 +12,14 @@ namespace app.Services {
         return this.BookResource.delete({_id:bookId}).$promise;
     }
 
+    public getBook(bookId) {
+      return this.BookResource.get({id:bookId});
+    }
+
+    public updateBook(book) {
+      return this.BookResource.update(book).$promise;
+    }
+
     public saveBook(book){
         return this.BookResource.save(book).$promise;
     };
