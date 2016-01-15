@@ -1,3 +1,10 @@
+<div class="container">
+       <h1>Pick your favorite animal:</h1>
+       <button class="btn" ng-click="vm.showModal('Bears')">Bears</button>
+       <button class="btn" ng-click="vm.showModal('Chickens')">Chickens</button>
+       <button class="btn" ng-click="vm.showModal('Fish')">Fish</button>
+   </div>
+
 <div ng-repeat="b in vm.books">
     <h1>Title: {{b.title}}</h1>
     <h3>Author: {{b.author}}</h3>

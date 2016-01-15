@@ -1,4 +1,5 @@
 "use strict";
+
 let should = require('should');
 let mongoose = require('mongoose');
 let request = require('supertest');
@@ -55,5 +56,32 @@ describe('-- Book Routes --', () => {
         })
         .end(done);
     });
+  });
+  //end of post book
+  describe("PUT, /books", () => {
+      var id;
+      before((done) => {
+          Book.findOne({title: "title" })
+          .exec((err,book) => {
+              id = book._id.toString();
+              done();
+          });
+      });
+      it("Should return a 200 with a body",(done) => {
+          var b = {title: "new title"};
+          request(app)
+          .put("/books/" + id )
+          .send (b)
+          .expect(200)
+          .expect((res) => {
+              should.exist(res.body);
+              res.body._id.should.equal(id);
+              res.body.title.should.equal('new title');
+              res.body.author.should.equal('author');
+              res.body.genre.should.equal('genre');
+              res.body.publish.should.equal(123);
+          })
+          .end(done);
+      })
   });
 });
